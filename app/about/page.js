@@ -106,19 +106,19 @@ export default function AboutPage() {
           </FadeIn>
         </div>
 
-        {/* Large Editorial Portrait & Bio Grid with IMG_0222.png */}
+        {/* Large Editorial Portrait & Bio Grid with yoga_img_2.png */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-5">
             <ImageReveal>
               <div className="relative rounded-3xl p-3.5 sm:p-4 bg-white border border-[#DFD9CC] shadow-xl">
                 <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-[#ECE8DF]">
                   <Image
-                    src="/images/IMG_0222.png"
+                    src="/images/yoga_img_2.png"
                     alt="Harpreet Kaur - Certified Yoga Teacher, Yoga Regime"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, 40vw"
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 </div>
 
@@ -232,8 +232,8 @@ export default function AboutPage() {
               <ImageReveal>
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-[#DFD9CC] shadow-lg">
                   <Image
-                    src="/images/IMG_0299-Recovered.png"
-                    alt="Harpreet Kaur in grounded posture"
+                    src="/images/yoga_img_10.png"
+                    alt="Harpreet Kaur in wheel pose posture"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"

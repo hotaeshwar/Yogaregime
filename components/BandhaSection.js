@@ -82,7 +82,7 @@ export default function BandhaSection() {
                 <div className="relative rounded-3xl p-3.5 sm:p-4 bg-white/10 border border-white/15 shadow-2xl backdrop-blur-sm">
                   <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-[#071519]">
                     <Image
-                      src="/images/IMG_0263.png"
+                      src="/images/yoga_img_5.png"
                       alt="Harpreet Kaur demonstrating authentic Uddiyana Bandha abdominal lock"
                       fill
                       sizes="(max-width: 768px) 100vw, 40vw"

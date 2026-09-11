@@ -22,7 +22,7 @@ export default function PhilosophyClosing() {
                 <div className="relative rounded-3xl p-3.5 sm:p-4 bg-white/10 border border-white/15 shadow-2xl backdrop-blur-sm">
                   <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-[#071519]">
                     <Image
-                      src="/images/IMG_0319.png"
+                      src="/images/yoga_img_11.png"
                       alt="Harpreet Kaur in grounded stillness and devotion to Yoga"
                       fill
                       sizes="(max-width: 768px) 100vw, 40vw"

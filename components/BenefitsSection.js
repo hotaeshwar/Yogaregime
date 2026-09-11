@@ -47,11 +47,11 @@ export default function BenefitsSection() {
         {/* Full-width Photography Background with Opacity and Gradient */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/benefits_yoga.jpg"
-            alt="Yogi practicing yoga at sunrise in the mountains"
+            src="/images/yoga_img_10.png"
+            alt="Harpreet Kaur practicing yoga in nature"
             fill
             sizes="100vw"
-            className="object-cover object-center opacity-30 mix-blend-luminosity scale-105"
+            className="object-cover object-center opacity-25 mix-blend-luminosity scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B2A3A] via-[#0B2A3A]/85 to-[#0B2A3A]/60" />
         </div>
@@ -112,7 +112,7 @@ export default function BenefitsSection() {
                         Watch My Story
                       </div>
                       <div className="text-xs text-[#EAE7E1]/60">
-                        2 min video · Serena&apos;s journey
+                        2 min reflection · Harpreet&apos;s journey
                       </div>
                     </div>
                   </button>
@@ -174,7 +174,7 @@ export default function BenefitsSection() {
                   </div>
                   <div>
                     <h4 className="font-serif text-lg text-white font-medium">
-                      Serena&apos;s Story · Finding Center
+                      Harpreet&apos;s Story · Living the Practice
                     </h4>
                     <p className="text-xs text-[#D8C9B8]">
                       A short meditation on living mindfully
@@ -192,8 +192,8 @@ export default function BenefitsSection() {
               {/* Video Player Preview Area */}
               <div className="relative aspect-video bg-black/80 flex flex-col items-center justify-center p-8 text-center">
                 <Image
-                  src="/images/hero_yoga.jpg"
-                  alt="Serena in nature"
+                  src="/images/yoga_img_7.png"
+                  alt="Harpreet in mindful flow"
                   fill
                   className="object-cover opacity-40"
                 />
@@ -207,7 +207,7 @@ export default function BenefitsSection() {
                     disturb.&rdquo;
                   </blockquote>
                   <p className="text-xs text-[#D8C9B8] uppercase tracking-widest font-semibold">
-                    Serena · Certified Yoga Guide
+                    Harpreet Kaur · Certified Yoga Teacher
                   </p>
                 </div>
               </div>

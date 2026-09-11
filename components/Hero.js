@@ -130,8 +130,8 @@ export default function Hero() {
               <div className="relative rounded-3xl p-3.5 sm:p-4 bg-white border border-[#DFD9CC] shadow-xl">
                 <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-[#ECE8DF]">
                   <Image
-                    src="/images/IMG_0299-Recovered.png"
-                    alt="Harpreet Kaur practicing yoga with graceful balance and focus"
+                    src="/images/yoga_img_7.png"
+                    alt="Harpreet Kaur practicing yoga with graceful balance and focus - Yoga Regime"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, 50vw"

@@ -11,8 +11,8 @@ export default function CTASection() {
       {/* Background Zen Photography */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/zen_stones.jpg"
-          alt="Balanced zen stones by water"
+          src="/images/yoga_img_8.png"
+          alt="Harpreet Kaur practicing mindful yoga"
           fill
           sizes="100vw"
           className="object-cover object-center opacity-25 mix-blend-luminosity scale-105"

@@ -76,7 +76,7 @@ export default function BookingPage() {
               <div className="relative rounded-3xl overflow-hidden border border-[#DFD9CC] shadow-md bg-[#ECE8DF]">
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src="/images/IMG_0267.png"
+                    src="/images/yoga_img_6.png"
                     alt="Harpreet Kaur practicing mindful movement"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"

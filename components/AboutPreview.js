@@ -14,19 +14,19 @@ export default function AboutPreview() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Portrait Photography with IMG_0222.png */}
+          {/* Left Column: Portrait Photography with yoga_img_2.png */}
           <div className="lg:col-span-5">
             <ImageReveal>
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 <div className="relative rounded-3xl overflow-hidden bg-white border border-[#DFD9CC] shadow-xl p-3.5 sm:p-4">
                   <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-[#ECE8DF]">
                     <Image
-                      src="/images/IMG_0222.png"
+                      src="/images/yoga_img_2.png"
                       alt="Harpreet Kaur - Certified Yoga Teacher, Yoga Regime"
                       fill
                       priority
                       sizes="(max-width: 768px) 100vw, 40vw"
-                      className="object-cover object-top"
+                      className="object-cover object-center"
                     />
                   </div>
 

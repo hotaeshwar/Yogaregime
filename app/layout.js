@@ -50,7 +50,7 @@ export const metadata = {
     siteName: "Yoga Regime",
     images: [
       {
-        url: "/images/IMG_0299-Recovered.png",
+        url: "/images/yoga_img_7.png",
         width: 1200,
         height: 630,
         alt: "Yoga Regime - Harpreet Kaur - Yoga Beyond the Asana",
@@ -64,7 +64,7 @@ export const metadata = {
     title: "Yoga Regime | Harpreet Kaur | Yoga Beyond the Asana",
     description:
       "Traditional yoga practices, modern understanding, and intelligent movement.",
-    images: ["/images/IMG_0299-Recovered.png"],
+    images: ["/images/yoga_img_7.png"],
   },
   robots: {
     index: true,

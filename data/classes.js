@@ -6,7 +6,7 @@ export const classesData = [
     level: "All Levels",
     duration: "60–75 mins",
     intensity: "Steady & Mindful",
-    image: "/images/IMG_0293.png",
+    image: "/images/yoga_img_6.png",
     shortDesc: "Understand alignment, movement mechanics and intelligent physical practice with steady awareness.",
     fullDesc: "Hatha Yoga at Yoga Regime is an intelligent physical practice focusing on anatomical alignment, conscious joint stability, and foundational breath integration. Rather than forcing shapes, learn the mechanics of why and how you move.",
     benefits: [
@@ -25,7 +25,7 @@ export const classesData = [
     level: "Intermediate / Advanced",
     duration: "75–90 mins",
     intensity: "Dynamic & Structured",
-    image: "/images/IMG_0282.png",
+    image: "/images/yoga_img_10.png",
     shortDesc: "Traditional counted vinyasa sequences building heat, discipline, stamina, and focused internal gaze (Drishti).",
     fullDesc: "A structured, traditional discipline linking breath (Ujjayi), internal locks (Bandhas), and focal points (Drishti). Experience the transformative power of progressive sequencing tailored to your anatomical readiness.",
     benefits: [
@@ -44,7 +44,7 @@ export const classesData = [
     level: "All Levels",
     duration: "60 mins",
     intensity: "Fluid & Energizing",
-    image: "/images/IMG_0247.png",
+    image: "/images/yoga_img_7.png",
     shortDesc: "Fluid transitions synchronizing breath and movement to experience moving meditation and flow state.",
     fullDesc: "A harmonious, intelligent flow connecting conscious inhales and exhales with seamless transitional movement. Sequences are structured with biomechanical intelligence to energize the nervous system safely.",
     benefits: [
@@ -63,7 +63,7 @@ export const classesData = [
     level: "All Levels",
     duration: "45 mins",
     intensity: "Conscious Breathwork",
-    image: "/images/IMG_0235.png",
+    image: "/images/yoga_img_1.png",
     shortDesc: "Develop awareness of the relationship between breath, movement, and the subtle fluctuations of the mind.",
     fullDesc: "Pranayama is the science of vital energy control. Learn traditional techniques including Nadi Shodhana, Kapalabhati, Bhastrika, and Bhramari with proper preparatory steps and nervous system regulation.",
     benefits: [
@@ -82,7 +82,7 @@ export const classesData = [
     level: "All Levels / Specialized",
     duration: "60 mins",
     intensity: "Internal Energy Locks",
-    image: "/images/IMG_0263.png",
+    image: "/images/yoga_img_5.png",
     shortDesc: "Experience Bandhas through appropriate preparation, technique and seamless integration into Asana practice.",
     fullDesc: "Bandhas are not abstract concepts—they are vital energetic and anatomical locks that stabilize the spine, protect internal organs, and direct subtle prana upward. Learn Mula, Uddiyana, Jalandhara, and Maha Bandha with experiential guidance.",
     benefits: [
@@ -101,7 +101,7 @@ export const classesData = [
     level: "All Levels",
     duration: "30–45 mins",
     intensity: "Subtle Energy Gestures",
-    image: "/images/IMG_0267.png",
+    image: "/images/yoga_img_1.png",
     shortDesc: "Explore traditional yogic hand and body gestures with deep awareness and appropriate guidance.",
     fullDesc: "Mudras are subtle energetic seals that redirect energy flow within the body, harmonizing the elements (earth, water, fire, air, space). Experience how Mudras elevate meditation, Pranayama, and mental stillness.",
     benefits: [
@@ -120,7 +120,7 @@ export const classesData = [
     level: "All Levels",
     duration: "45 mins",
     intensity: "Restorative & Observational",
-    image: "/images/IMG_0283.png",
+    image: "/images/yoga_img_1.png",
     shortDesc: "Develop greater awareness, observation of thoughts, and profound connection with the mind.",
     fullDesc: "Cultivate the art of witnessing (Sakshi Bhava). Through somatic body sensing, breath awareness, and traditional mindfulness methods, transcend reactionary mental loops into natural silence and self-understanding.",
     benefits: [
@@ -139,7 +139,7 @@ export const classesData = [
     level: "Guided Preparation",
     duration: "60 mins",
     intensity: "Traditional Yogic Cleansing",
-    image: "/images/IMG_0299-Recovered.png",
+    image: "/images/yoga_img_9.png",
     shortDesc: "Learn about traditional yogic cleansing practices according to individual preparation and suitability.",
     fullDesc: "Shatkarmas (Neti, Dhauti, Nauli, Basti, Kapalabhati, Trataka) are ancient purification techniques designed to balance the doshas and purify the respiratory and digestive pathways for higher yoga practices.",
     benefits: [
@@ -158,7 +158,7 @@ export const classesData = [
     level: "All Trimesters & Postpartum",
     duration: "50 mins",
     intensity: "Gentle & Nourishing",
-    image: "/images/IMG_0299-Recovered.png",
+    image: "/images/yoga_img_11.png",
     shortDesc: "Safe, nurturing movements and breathing techniques supporting mothers through pregnancy and postpartum recovery.",
     fullDesc: "Dedicated to maternal wellness. Tailored gentle postures relieve lower back and pelvic tension, strengthen pelvic muscles, and provide calming breathwork practices for pregnancy, labor, and gentle postpartum recovery.",
     benefits: [
@@ -177,7 +177,7 @@ export const classesData = [
     level: "Advanced Practitioners",
     duration: "90 mins",
     intensity: "Intensive & Exploratory",
-    image: "/images/IMG_0306.png",
+    image: "/images/yoga_img_2.png",
     shortDesc: "Refine intricate arm balances, deep inversions, and backbends with anatomical precision and mental control.",
     fullDesc: "For dedicated students seeking to explore the frontiers of their physical and mental discipline. Deepen your understanding of leverage, Bandha engagement, and breath control in advanced inversions, arm balances, and backbend transitions.",
     benefits: [

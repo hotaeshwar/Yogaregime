@@ -20,7 +20,7 @@ export default function MovementBreath() {
                 <div className="relative rounded-3xl p-3.5 sm:p-4 bg-white border border-[#DFD9CC] shadow-xl">
                   <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-[#ECE8DF]">
                     <Image
-                      src="/images/IMG_0267.png"
+                      src="/images/yoga_img_3.png"
                       alt="Harpreet Kaur moving with mindful alignment and conscious breath"
                       fill
                       sizes="(max-width: 768px) 100vw, 40vw"

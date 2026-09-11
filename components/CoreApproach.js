@@ -23,7 +23,7 @@ export default function CoreApproach() {
         "Cultivate somatic connection with every movement",
         "Transform physical practice into moving meditation"
       ],
-      image: "/images/IMG_0238.png",
+      image: "/images/yoga_img_4.png",
       number: "01",
     },
     {
@@ -38,7 +38,7 @@ export default function CoreApproach() {
         "Harmonize left and right brain hemispheres (Nadi Shodhana)",
         "Prepares the mind effortlessly for meditative stillness"
       ],
-      image: "/images/IMG_0235.png",
+      image: "/images/yoga_img_1.png",
       number: "02",
     },
     {
@@ -53,7 +53,7 @@ export default function CoreApproach() {
         "Direct subtle energy currents along the central axis",
         "Unlock seamless transitions and grounded equilibrium"
       ],
-      image: "/images/IMG_0263.png",
+      image: "/images/yoga_img_5.png",
       number: "03",
     },
     {
@@ -68,7 +68,7 @@ export default function CoreApproach() {
         "Anchor the mind into tranquil contemplation",
         "Enhance the energetic efficacy of Pranayama"
       ],
-      image: "/images/IMG_0267.png",
+      image: "/images/yoga_img_2.png",
       number: "04",
     },
     {
@@ -83,7 +83,7 @@ export default function CoreApproach() {
         "Enhance mental clarity, intuition, and peace",
         "Sustain a lifelong daily practice of inner awareness"
       ],
-      image: "/images/IMG_0283.png",
+      image: "/images/yoga_img_8.png",
       number: "05",
     },
     {
@@ -98,7 +98,7 @@ export default function CoreApproach() {
         "Sharpen sensory acuity and mental alertness",
         "Follow safe, personalized traditional guidance"
       ],
-      image: "/images/IMG_0299-Recovered.png",
+      image: "/images/yoga_img_9.png",
       number: "06",
     },
   ];
