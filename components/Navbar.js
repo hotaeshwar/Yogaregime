@@ -278,18 +278,9 @@ export default function Navbar() {
                 </nav>
               </div>
 
-              {/* Bottom CTA in drawer */}
-              <div className="pt-6 border-t border-[#DFD9CC] space-y-3">
-                <AnimatedButton
-                  href="/booking"
-                  onClick={() => setMobileMenuOpen(false)}
-                  variant="primary"
-                  size="md"
-                  className="w-full py-3.5"
-                >
-                  Connect With Me
-                </AnimatedButton>
-                <div className="text-center text-xs text-[#5C7267]">
+              {/* Bottom Note in drawer */}
+              <div className="pt-6 border-t border-[#DFD9CC] text-center">
+                <div className="text-xs text-[#5C7267]">
                   Harpreet Kaur · Certified Yoga Teacher
                 </div>
               </div>
