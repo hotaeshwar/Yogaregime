@@ -199,7 +199,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#0E2229]/50 backdrop-blur-md lg:hidden"
+            className="fixed inset-0 z-[60] bg-[#0E2229]/60 backdrop-blur-md lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           >
             <motion.div
@@ -214,7 +214,7 @@ export default function Navbar() {
                 {/* Header */}
                 <div className="flex items-center justify-between pb-6 border-b border-[#DFD9CC]">
                   <div className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white border border-[#C89B58]/40 shadow-sm shrink-0 flex items-center justify-center">
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden bg-white border border-[#C89B58]/40 shadow-sm shrink-0 flex items-center justify-center">
                       <Image
                         src="/images/logo1.png"
                         alt="Yoga Regime Logo"
@@ -225,53 +225,56 @@ export default function Navbar() {
                       />
                     </div>
                     <div>
-                      <div className="font-serif text-xl font-medium text-[#0E2229]">
+                      <div className="font-serif text-lg sm:text-xl font-medium text-[#0E2229] leading-tight">
                         Yoga Regime
                       </div>
-                      <div className="text-[8px] tracking-[0.24em] text-[#5C7267] uppercase font-semibold">
+                      <div className="text-[7.5px] tracking-[0.24em] text-[#5C7267] uppercase font-semibold">
                         Yoga Beyond the Asana
                       </div>
                     </div>
                   </div>
                   <button
+                    type="button"
                     onClick={() => setMobileMenuOpen(false)}
                     aria-label="Close menu"
-                    className="p-2 rounded-full text-[#1D2628] hover:bg-[#ECE8DF]"
+                    className="p-2 rounded-full text-[#1D2628] hover:bg-[#ECE8DF] transition-colors focus:outline-none"
                   >
                     <X className="w-5 h-5" />
                   </button>
                 </div>
 
-                {/* Staggered Navigation Links */}
-                <nav className="mt-8 flex flex-col gap-2">
-                  {navLinks.map((link, idx) => {
-                    const isActive = pathname === link.href;
-                    return (
-                      <motion.div
-                        key={link.name}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.08 * idx, duration: 0.35 }}
-                      >
-                        <Link
-                          href={link.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-medium transition-all ${
-                            isActive
-                              ? "bg-[#0E2229] text-white font-semibold shadow-sm"
-                              : "text-[#1D2628] hover:bg-[#ECE8DF]/70 hover:text-[#0E2229]"
-                          }`}
+                {/* Staggered Navigation Links without Contact */}
+                <nav className="mt-6 flex flex-col gap-2">
+                  {navLinks
+                    .filter((link) => link.name !== "Contact" && link.href !== "/contact")
+                    .map((link, idx) => {
+                      const isActive = pathname === link.href;
+                      return (
+                        <motion.div
+                          key={link.name}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.06 * idx, duration: 0.3 }}
                         >
-                          <span>{link.name}</span>
-                          <ArrowRight
-                            className={`w-4 h-4 opacity-70 ${
-                              isActive ? "text-[#C89B58]" : ""
+                          <Link
+                            href={link.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-medium transition-all ${
+                              isActive
+                                ? "bg-[#0E2229] text-white font-semibold shadow-sm"
+                                : "text-[#1D2628] hover:bg-[#ECE8DF]/70 hover:text-[#0E2229]"
                             }`}
-                          />
-                        </Link>
-                      </motion.div>
-                    );
-                  })}
+                          >
+                            <span>{link.name}</span>
+                            <ArrowRight
+                              className={`w-4 h-4 opacity-70 ${
+                                isActive ? "text-[#C89B58]" : ""
+                              }`}
+                            />
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
                 </nav>
               </div>
 
