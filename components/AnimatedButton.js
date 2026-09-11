@@ -32,39 +32,43 @@ export default function AnimatedButton({
 
   const currentArrowSize = arrowSizes[size] || "w-3.5 h-3.5";
 
-  // Curtains and underlayer colors per variant with high contrast
+  // Liquid colors and typography per variant with high contrast
   const variantStyles = {
-    // Primary: Navy curtains parting on hover to reveal warm beige underlayer
+    // Primary: Navy base with glowing warm gold fluid liquid filling upward
     primary: {
-      underlayer: "bg-[#D8C9B8]",
-      curtain: "bg-[#0B2A3A]",
-      textStyle: "text-white group-hover:text-[#0B2A3A]",
-      borderColor: "border-[#0B2A3A]",
-      shadow: "shadow-xs hover:shadow-md",
+      baseBg: "bg-[#0E2229]",
+      liquidWave: "bg-[#C89B58]",
+      liquidWaveSecondary: "bg-[#DFC08A]",
+      textStyle: "text-white group-hover:text-[#0E2229]",
+      borderColor: "border-[#0E2229] hover:border-[#C89B58]",
+      shadow: "shadow-sm hover:shadow-lg hover:shadow-[#C89B58]/20",
     },
-    // Secondary: Beige curtains parting on hover to reveal deep navy underlayer
+    // Secondary: Warm beige base with deep navy fluid liquid surging upward
     secondary: {
-      underlayer: "bg-[#0B2A3A]",
-      curtain: "bg-[#D8C9B8]",
-      textStyle: "text-[#0B2A3A] group-hover:text-white",
-      borderColor: "border-[#D8C9B8]",
-      shadow: "shadow-xs hover:shadow-md",
+      baseBg: "bg-[#D9CBBA]",
+      liquidWave: "bg-[#0E2229]",
+      liquidWaveSecondary: "bg-[#183842]",
+      textStyle: "text-[#0E2229] group-hover:text-white",
+      borderColor: "border-[#DFD9CC] hover:border-[#0E2229]",
+      shadow: "shadow-sm hover:shadow-lg hover:shadow-[#0E2229]/20",
     },
-    // Outline: Warm light curtains parting on hover to reveal deep navy underlayer with crisp white text
+    // Outline: Transparent / crisp border with navy liquid wave rising
     outline: {
-      underlayer: "bg-[#0B2A3A]",
-      curtain: "bg-[#F8F7F3]",
-      textStyle: "text-[#0B2A3A] group-hover:text-white",
-      borderColor: "border-[#0B2A3A]",
+      baseBg: "bg-transparent",
+      liquidWave: "bg-[#0E2229]",
+      liquidWaveSecondary: "bg-[#183842]",
+      textStyle: "text-[#0E2229] group-hover:text-white",
+      borderColor: "border-[#0E2229] hover:border-[#0E2229]",
       shadow: "shadow-xs hover:shadow-md",
     },
-    // Sage: Sage curtains parting on hover to reveal deep navy
+    // Sage: Sage base with warm golden fluid liquid filling
     sage: {
-      underlayer: "bg-[#0B2A3A]",
-      curtain: "bg-[#6E7F72]",
-      textStyle: "text-white group-hover:text-white",
-      borderColor: "border-[#6E7F72]",
-      shadow: "shadow-xs hover:shadow-md",
+      baseBg: "bg-[#5C7267]",
+      liquidWave: "bg-[#C89B58]",
+      liquidWaveSecondary: "bg-[#DFC08A]",
+      textStyle: "text-white group-hover:text-[#0E2229]",
+      borderColor: "border-[#5C7267] hover:border-[#C89B58]",
+      shadow: "shadow-sm hover:shadow-lg hover:shadow-[#5C7267]/20",
     },
   };
 
@@ -76,36 +80,44 @@ export default function AnimatedButton({
     >
       <span>{children}</span>
       {CustomIcon ? (
-        <CustomIcon className={`${currentArrowSize} transition-transform duration-300 ease-out group-hover:translate-x-1 shrink-0`} />
+        <CustomIcon
+          className={`${currentArrowSize} transition-transform duration-300 ease-out group-hover:translate-x-1 shrink-0`}
+        />
       ) : showArrow ? (
-        <ArrowRight className={`${currentArrowSize} transition-transform duration-300 ease-out group-hover:translate-x-1 shrink-0`} />
+        <ArrowRight
+          className={`${currentArrowSize} transition-transform duration-300 ease-out group-hover:translate-x-1 shrink-0`}
+        />
       ) : null}
     </span>
   );
 
-  const baseClasses = `group relative inline-flex items-center justify-center rounded-full overflow-hidden border transition-all duration-400 ease-out select-none whitespace-nowrap shrink-0 active:scale-[0.98] ${
-    currentVariant.underlayer
+  const baseClasses = `liquid-btn group relative inline-flex items-center justify-center rounded-full overflow-hidden border transition-all duration-300 ease-out select-none whitespace-nowrap shrink-0 active:scale-[0.96] ${
+    currentVariant.baseBg
   } ${currentVariant.borderColor} ${currentVariant.shadow} ${
     sizeClasses[size]
   } ${disabled ? "opacity-60 pointer-events-none" : "cursor-pointer"} ${className}`;
 
-  const curtains = (
+  const liquidEffect = (
     <>
-      {/* Left split curtain */}
+      {/* Secondary fluid wave (depth layer) */}
       <span
-        className={`absolute inset-y-0 left-0 w-[50.5%] ${currentVariant.curtain} transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-full z-0`}
+        aria-hidden="true"
+        className={`liquid-wave-secondary ${currentVariant.liquidWaveSecondary}`}
       />
-      {/* Right split curtain */}
+      {/* Primary fluid wave (main liquid fill) */}
       <span
-        className={`absolute inset-y-0 right-0 w-[50.5%] ${currentVariant.curtain} transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-full z-0`}
+        aria-hidden="true"
+        className={`liquid-wave ${currentVariant.liquidWave}`}
       />
+      {/* Specular glossy sheen */}
+      <span aria-hidden="true" className="liquid-sheen" />
     </>
   );
 
   if (href) {
     return (
       <Link href={href} className={baseClasses} {...props}>
-        {curtains}
+        {liquidEffect}
         {content}
       </Link>
     );
@@ -119,7 +131,7 @@ export default function AnimatedButton({
       className={baseClasses}
       {...props}
     >
-      {curtains}
+      {liquidEffect}
       {content}
     </button>
   );

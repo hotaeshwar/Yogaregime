@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { testimonialsData } from "@/data/testimonials";
@@ -61,18 +60,18 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-24 sm:py-32 bg-[#F8F7F3] border-t border-[#EAE7E1] relative overflow-hidden"
+      className="py-24 sm:py-32 bg-[#FAF8F5] border-t border-[#DFD9CC] relative overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Header */}
         <div className="space-y-3 mb-12 sm:mb-16">
           <FadeIn>
-            <div className="text-xs font-semibold tracking-widest uppercase text-[#6E7F72]">
+            <div className="text-xs font-semibold tracking-widest uppercase text-[#5C7267]">
               Community Voices
             </div>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h2 className="font-serif text-4xl sm:text-5xl font-medium text-[#0B2A3A] tracking-tight">
+            <h2 className="font-serif text-4xl sm:text-5xl font-medium text-[#0E2229] tracking-tight">
               <TypewriterText
                 words={[
                   "What My Students Say",
@@ -83,15 +82,15 @@ export default function Testimonials() {
                 typingSpeed={70}
                 deletingSpeed={35}
                 pauseTime={2200}
-                cursorClassName="bg-[#0B2A3A]"
+                cursorClassName="bg-[#C89B58]"
               />
             </h2>
           </FadeIn>
         </div>
 
         {/* Testimonial Card Slider */}
-        <div className="relative bg-white border border-[#EAE7E1] rounded-3xl p-8 sm:p-12 shadow-sm min-h-[320px] flex flex-col justify-between">
-          <div className="absolute top-6 left-6 text-[#EAE7E1] -z-0">
+        <div className="relative bg-white border border-[#DFD9CC] rounded-3xl p-8 sm:p-12 shadow-sm min-h-[320px] flex flex-col justify-between">
+          <div className="absolute top-6 left-6 text-[#DFD9CC]/60 -z-0">
             <Quote className="w-12 h-12 stroke-[1]" />
           </div>
 
@@ -111,33 +110,23 @@ export default function Testimonials() {
                   {[...Array(current.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 fill-[#0B2A3A] text-[#0B2A3A]"
+                      className="w-4 h-4 fill-[#C89B58] text-[#C89B58]"
                     />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <blockquote className="font-serif text-xl sm:text-2xl text-[#243038] italic leading-relaxed max-w-2xl mx-auto">
+                <blockquote className="font-serif text-xl sm:text-2xl text-[#1A333D] italic leading-relaxed max-w-2xl mx-auto">
                   &ldquo;{current.quote}&rdquo;
                 </blockquote>
 
-                {/* Student Bio */}
-                <div className="flex flex-col items-center gap-2 pt-2">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#D8C9B8] shadow-xs">
-                    <Image
-                      src={current.image}
-                      alt={current.name}
-                      fill
-                      className="object-cover"
-                    />
+                {/* Student Bio - Without Avatar Image */}
+                <div className="flex flex-col items-center gap-1 pt-2">
+                  <div className="font-serif text-lg font-semibold text-[#0E2229]">
+                    {current.name}
                   </div>
-                  <div>
-                    <div className="font-serif text-base font-semibold text-[#0B2A3A]">
-                      {current.name}
-                    </div>
-                    <div className="text-xs text-[#6E7F72]">
-                      {current.role} · {current.service}
-                    </div>
+                  <div className="text-xs text-[#5C7267] font-medium tracking-wide">
+                    {current.role} · {current.service}
                   </div>
                 </div>
               </motion.div>
@@ -145,12 +134,12 @@ export default function Testimonials() {
           </div>
 
           {/* Navigation Controls: Arrows and Dots */}
-          <div className="relative z-10 pt-8 mt-6 border-t border-[#EAE7E1]/80 flex items-center justify-between">
+          <div className="relative z-10 pt-8 mt-6 border-t border-[#DFD9CC]/80 flex items-center justify-between">
             {/* Prev Arrow */}
             <button
               onClick={prevTestimonial}
               aria-label="Previous testimonial"
-              className="w-10 h-10 rounded-full border border-[#EAE7E1] bg-[#F8F7F3] hover:bg-[#0B2A3A] hover:text-white hover:border-[#0B2A3A] text-[#0B2A3A] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-full border border-[#DFD9CC] bg-[#FAF8F5] hover:bg-[#0E2229] hover:text-[#FAF8F5] hover:border-[#0E2229] text-[#0E2229] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -167,8 +156,8 @@ export default function Testimonials() {
                   aria-label={`Go to testimonial ${idx + 1}`}
                   className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                     idx === currentIndex
-                      ? "w-8 bg-[#0B2A3A]"
-                      : "w-2 bg-[#D8C9B8] hover:bg-[#6E7F72]"
+                      ? "w-8 bg-[#0E2229]"
+                      : "w-2 bg-[#DFD9CC] hover:bg-[#C89B58]"
                   }`}
                 />
               ))}
@@ -178,7 +167,7 @@ export default function Testimonials() {
             <button
               onClick={nextTestimonial}
               aria-label="Next testimonial"
-              className="w-10 h-10 rounded-full border border-[#EAE7E1] bg-[#F8F7F3] hover:bg-[#0B2A3A] hover:text-white hover:border-[#0B2A3A] text-[#0B2A3A] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-full border border-[#DFD9CC] bg-[#FAF8F5] hover:bg-[#0E2229] hover:text-[#FAF8F5] hover:border-[#0E2229] text-[#0E2229] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

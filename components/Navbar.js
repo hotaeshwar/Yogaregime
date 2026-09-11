@@ -2,17 +2,19 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import AnimatedButton from "./AnimatedButton";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Classes", href: "/classes" },
-  { name: "Programs", href: "/programs" },
-  { name: "Testimonials", href: "/#testimonials" },
+  { name: "Philosophy", href: "/#philosophy" },
+  { name: "About", href: "/#about" },
+  { name: "Core Approach", href: "/#core-approach" },
+  { name: "Bandhas", href: "/#bandhas" },
+  { name: "Practice Areas", href: "/#practice-areas" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -53,9 +55,8 @@ export default function Navbar() {
   const getActiveHref = () => {
     if (pathname === "/") return "/";
     if (pathname.startsWith("/about")) return "/about";
-    if (pathname.startsWith("/classes")) return "/classes";
-    if (pathname.startsWith("/programs")) return "/programs";
     if (pathname.startsWith("/contact")) return "/contact";
+    if (pathname.startsWith("/booking")) return "/booking";
     return "";
   };
 
@@ -67,47 +68,43 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           scrolled
-            ? "bg-[#F8F7F3]/90 backdrop-blur-xl border-b border-[#EAE7E1]/80 py-2.5 sm:py-3 shadow-[0_4px_20px_-4px_rgba(11,42,58,0.06)]"
-            : "bg-transparent py-4 sm:py-5 border-b border-transparent"
+            ? "bg-[#FAF8F5]/95 backdrop-blur-xl border-b border-[#DFD9CC]/80 py-2 sm:py-2.5 shadow-[0_4px_25px_-4px_rgba(14,34,41,0.07)]"
+            : "bg-transparent py-3.5 sm:py-4.5 border-b border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo & Brand */}
+            {/* Logo & Brand - 60% bigger and properly visible */}
             <Link
               href="/"
-              className="group flex items-center gap-2 sm:gap-3 text-[#0B2A3A] focus:outline-none shrink-0"
+              className="group flex items-center gap-3 sm:gap-3.5 text-[#0E2229] focus:outline-none shrink-0"
             >
-              {/* Lotus Icon Emblem */}
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0B2A3A] text-white flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-sm shrink-0">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-4 h-4 sm:w-5 sm:h-5"
-                >
-                  <path d="M12 3c-1.5 3-4 6-8 7 4 1 6.5 4 8 11 1.5-7 4-10 8-11-4-1-6.5-4-8-7z" />
-                  <path d="M12 12c-2-3-5-4.5-9-4 3 2 4.5 5 5 9" />
-                  <path d="M12 12c2-3 5-4.5 9-4-3 2-4.5 5-5 9" />
-                </svg>
+              {/* 60% Bigger Logo with crisp frame */}
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-white shadow-md border-2 border-[#C89B58]/40 transition-transform duration-300 group-hover:scale-105 shrink-0 flex items-center justify-center">
+                <Image
+                  src="/images/logo1.png"
+                  alt="Yoga Regime Logo - Harpreet Kaur"
+                  width={160}
+                  height={160}
+                  priority
+                  unoptimized
+                  className="w-full h-full object-contain object-center"
+                />
               </div>
 
               <div className="flex flex-col">
-                <span className="font-serif text-lg sm:text-2xl lg:text-[1.65rem] tracking-tight font-medium leading-none text-[#0B2A3A] whitespace-nowrap">
-                  Serena Yoga
+                <span className="font-serif text-xl sm:text-2xl lg:text-[1.75rem] tracking-tight font-medium leading-none text-[#0E2229] whitespace-nowrap">
+                  Yoga Regime
                 </span>
-                <span className="text-[7.5px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.26em] text-[#6E7F72] uppercase font-medium mt-0.5 sm:mt-1 whitespace-nowrap">
-                  Move · Breathe · Be
+                <span className="text-[8px] sm:text-[9.5px] tracking-[0.24em] sm:tracking-[0.28em] text-[#5C7267] uppercase font-semibold mt-1 whitespace-nowrap">
+                  Yoga Beyond the Asana
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation with Sliding Pill */}
+            {/* Desktop Navigation with Fluid Liquid Sliding Pill */}
             <nav
-              className="hidden lg:flex items-center p-1.5 bg-[#EAE7E1]/40 backdrop-blur-md rounded-full border border-[#EAE7E1]/60"
+              className="hidden lg:flex items-center p-1.5 bg-[#ECE8DF]/70 backdrop-blur-md rounded-full border border-[#DFD9CC]/90 shadow-inner"
               onMouseLeave={() => setHoveredPath(null)}
             >
               {navLinks.map((link) => {
@@ -119,20 +116,32 @@ export default function Navbar() {
                     onMouseEnter={() => setHoveredPath(link.href)}
                     className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full z-10 select-none ${
                       isCurrent
-                        ? "text-white"
-                        : "text-[#243038] hover:text-[#0B2A3A]"
+                        ? "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                        : "text-[#1D2628] hover:text-[#0E2229]"
                     }`}
                   >
                     {isCurrent && (
                       <motion.span
                         layoutId="nav-sliding-pill"
-                        className="absolute inset-0 bg-[#0B2A3A] rounded-full -z-10 shadow-sm"
+                        className="absolute inset-0 rounded-full -z-10 overflow-hidden bg-gradient-to-r from-[#0E2229] via-[#14323D] to-[#0E2229] border border-[#C89B58]/40 shadow-[0_4px_18px_-2px_rgba(14,34,41,0.4),0_0_12px_rgba(200,155,88,0.2)]"
                         transition={{
                           type: "spring",
-                          stiffness: 420,
-                          damping: 32,
+                          stiffness: 340,
+                          damping: 25,
+                          mass: 0.85,
                         }}
-                      />
+                      >
+                        {/* Top specular liquid gloss */}
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-x-1 top-0 h-[48%] bg-gradient-to-b from-white/30 via-white/8 to-transparent rounded-t-full pointer-events-none"
+                        />
+                        {/* Internal fluid ambient ripple */}
+                        <span
+                          aria-hidden="true"
+                          className="absolute -bottom-2 inset-x-2 h-3 bg-[#C89B58]/25 blur-sm rounded-full pointer-events-none"
+                        />
+                      </motion.span>
                     )}
                     <span>{link.name}</span>
                   </Link>
@@ -146,14 +155,14 @@ export default function Navbar() {
                 href="/booking"
                 variant="primary"
                 size="sm"
-                className="shadow-xs px-4.5 py-2 text-xs font-semibold uppercase tracking-wider whitespace-nowrap"
+                className="shadow-xs px-5 py-2.5 text-xs font-semibold uppercase tracking-wider whitespace-nowrap"
               >
-                Book a Session
+                Connect With Me
               </AnimatedButton>
             </div>
 
             {/* Mobile & Tablet Controls */}
-            <div className="flex lg:hidden items-center gap-1.5 sm:gap-2.5 shrink-0">
+            <div className="flex lg:hidden items-center gap-2 sm:gap-3 shrink-0">
               {/* Sleek CTA Button for Mobile/Tablet */}
               <AnimatedButton
                 href="/booking"
@@ -161,8 +170,7 @@ export default function Navbar() {
                 size="xs"
                 className="px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold shadow-xs whitespace-nowrap"
               >
-                <span className="sm:hidden">Book Session</span>
-                <span className="hidden sm:inline">Book a Session</span>
+                <span>Connect</span>
               </AnimatedButton>
 
               {/* Hamburger Button */}
@@ -170,7 +178,7 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
-                className="p-1.5 sm:p-2 rounded-full text-[#0B2A3A] hover:bg-[#EAE7E1]/60 transition-colors focus:outline-none shrink-0"
+                className="p-1.5 sm:p-2 rounded-full text-[#0E2229] hover:bg-[#ECE8DF]/70 transition-colors focus:outline-none shrink-0"
               >
                 {mobileMenuOpen ? (
                   <X className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 rotate-90" />
@@ -191,7 +199,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#0B2A3A]/40 backdrop-blur-md lg:hidden"
+            className="fixed inset-0 z-40 bg-[#0E2229]/50 backdrop-blur-md lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           >
             <motion.div
@@ -200,28 +208,35 @@ export default function Navbar() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
               onClick={(e) => e.stopPropagation()}
-              className="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-[#F8F7F3] shadow-2xl p-6 sm:p-8 flex flex-col justify-between border-l border-[#EAE7E1]"
+              className="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-[#FAF8F5] shadow-2xl p-6 sm:p-8 flex flex-col justify-between border-l border-[#DFD9CC]"
             >
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-6 border-b border-[#EAE7E1]">
+                <div className="flex items-center justify-between pb-6 border-b border-[#DFD9CC]">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#0B2A3A] text-white flex items-center justify-center">
-                      <Sparkles className="w-4 h-4 text-[#D8C9B8]" />
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white border border-[#C89B58]/40 shadow-sm shrink-0 flex items-center justify-center">
+                      <Image
+                        src="/images/logo1.png"
+                        alt="Yoga Regime Logo"
+                        width={120}
+                        height={120}
+                        unoptimized
+                        className="w-full h-full object-contain object-center"
+                      />
                     </div>
                     <div>
-                      <div className="font-serif text-xl font-medium text-[#0B2A3A]">
-                        Serena Yoga
+                      <div className="font-serif text-xl font-medium text-[#0E2229]">
+                        Yoga Regime
                       </div>
-                      <div className="text-[8px] tracking-[0.25em] text-[#6E7F72] uppercase font-medium">
-                        Move · Breathe · Be
+                      <div className="text-[8px] tracking-[0.24em] text-[#5C7267] uppercase font-semibold">
+                        Yoga Beyond the Asana
                       </div>
                     </div>
                   </div>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
                     aria-label="Close menu"
-                    className="p-2 rounded-full text-[#243038] hover:bg-[#EAE7E1]"
+                    className="p-2 rounded-full text-[#1D2628] hover:bg-[#ECE8DF]"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -243,14 +258,14 @@ export default function Navbar() {
                           onClick={() => setMobileMenuOpen(false)}
                           className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-medium transition-all ${
                             isActive
-                              ? "bg-[#0B2A3A] text-white font-semibold shadow-sm"
-                              : "text-[#243038] hover:bg-[#EAE7E1]/70 hover:text-[#0B2A3A]"
+                              ? "bg-[#0E2229] text-white font-semibold shadow-sm"
+                              : "text-[#1D2628] hover:bg-[#ECE8DF]/70 hover:text-[#0E2229]"
                           }`}
                         >
                           <span>{link.name}</span>
                           <ArrowRight
                             className={`w-4 h-4 opacity-70 ${
-                              isActive ? "text-[#D8C9B8]" : ""
+                              isActive ? "text-[#C89B58]" : ""
                             }`}
                           />
                         </Link>
@@ -261,7 +276,7 @@ export default function Navbar() {
               </div>
 
               {/* Bottom CTA in drawer */}
-              <div className="pt-6 border-t border-[#EAE7E1] space-y-3">
+              <div className="pt-6 border-t border-[#DFD9CC] space-y-3">
                 <AnimatedButton
                   href="/booking"
                   onClick={() => setMobileMenuOpen(false)}
@@ -269,10 +284,10 @@ export default function Navbar() {
                   size="md"
                   className="w-full py-3.5"
                 >
-                  Book a Session
+                  Connect With Me
                 </AnimatedButton>
-                <div className="text-center text-xs text-[#6E7F72]">
-                  Private · Studio · Online Classes
+                <div className="text-center text-xs text-[#5C7267]">
+                  Harpreet Kaur · Certified Yoga Teacher
                 </div>
               </div>
             </motion.div>

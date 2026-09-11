@@ -18,7 +18,7 @@ import AnimatedButton from "@/components/AnimatedButton";
 import { FadeIn } from "@/components/ScrollReveal";
 import TypewriterText from "@/components/TypewriterText";
 
-const filters = ["All", "Beginner", "Intermediate", "All Levels"];
+const filters = ["All", "All Levels", "Intermediate / Advanced", "Specialized"];
 
 export default function ClassesPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -26,8 +26,10 @@ export default function ClassesPage() {
 
   const filteredClasses = classesData.filter((item) => {
     if (activeFilter === "All") return true;
-    if (activeFilter === "All Levels") return item.level === "All Levels";
-    return item.level === activeFilter;
+    if (activeFilter === "All Levels") return item.level.includes("All Levels");
+    if (activeFilter === "Intermediate / Advanced") return item.level.includes("Advanced") || item.level.includes("Intermediate");
+    if (activeFilter === "Specialized") return item.level.includes("Specialized") || item.level.includes("Trimesters") || item.level.includes("Guided");
+    return true;
   });
 
   return (
@@ -36,39 +38,38 @@ export default function ClassesPage() {
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EAE7E1]/80 border border-[#D8C9B8] text-xs font-semibold uppercase tracking-widest text-[#0B2A3A]">
-              <Sparkles className="w-3.5 h-3.5 text-[#6E7F72]" />
-              <span>Studio & Online Offerings</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ECE8DF]/80 border border-[#DFD9CC] text-xs font-semibold uppercase tracking-widest text-[#0E2229]">
+              <Sparkles className="w-3.5 h-3.5 text-[#C89B58]" />
+              <span>Authentic Practice Disciplines</span>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium text-[#0B2A3A] tracking-tight">
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium text-[#0E2229] tracking-tight">
               <TypewriterText
                 words={[
-                  "Yoga Classes",
-                  "Mindful Movement",
-                  "Sacred Practices",
-                  "Holistic Flows",
+                  "Practice Disciplines",
+                  "Intelligent Movement",
+                  "Bandhas & Alignment",
+                  "Traditional Yoga",
                 ]}
                 typingSpeed={75}
                 deletingSpeed={35}
                 pauseTime={2200}
-                cursorClassName="bg-[#0B2A3A]"
+                cursorClassName="bg-[#0E2229]"
               />
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="text-base sm:text-lg text-[#586771] font-light leading-relaxed">
-              Discover practices designed for every body, every goal. Whether
-              you seek deep restorative calm or dynamic cardiovascular vigor.
+            <p className="text-base sm:text-lg text-[#526063] font-light leading-relaxed">
+              Explore practices taught with anatomical awareness and traditional depth by Harpreet Kaur.
             </p>
           </FadeIn>
 
           {/* Animated Filter Pills */}
           <FadeIn delay={0.3} className="pt-4">
-            <div className="inline-flex flex-wrap items-center justify-center p-1.5 bg-[#EAE7E1]/60 backdrop-blur-sm rounded-full border border-[#EAE7E1] gap-1">
+            <div className="inline-flex flex-wrap items-center justify-center p-1.5 bg-[#ECE8DF]/60 backdrop-blur-sm rounded-full border border-[#DFD9CC] gap-1">
               {filters.map((tab) => {
                 const isCurrent = activeFilter === tab;
                 return (
@@ -78,13 +79,13 @@ export default function ClassesPage() {
                     className={`relative px-5 py-2 text-xs sm:text-sm font-medium rounded-full transition-colors duration-300 z-10 cursor-pointer ${
                       isCurrent
                         ? "text-white font-semibold"
-                        : "text-[#243038] hover:text-[#0B2A3A]"
+                        : "text-[#1D2628] hover:text-[#0E2229]"
                     }`}
                   >
                     {isCurrent && (
                       <motion.span
                         layoutId="class-filter-pill"
-                        className="absolute inset-0 bg-[#0B2A3A] rounded-full -z-10 shadow-sm"
+                        className="absolute inset-0 bg-[#0E2229] rounded-full -z-10 shadow-sm"
                         transition={{
                           type: "spring",
                           stiffness: 420,
@@ -114,49 +115,41 @@ export default function ClassesPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.94 }}
                 transition={{ duration: 0.4 }}
-                className="group flex flex-col bg-white rounded-3xl p-5 border border-[#EAE7E1] shadow-xs hover:shadow-xl hover:border-[#D8C9B8] transition-all duration-500 hover:-translate-y-1.5"
+                className="group flex flex-col bg-white rounded-3xl p-5 border border-[#DFD9CC] shadow-xs hover:shadow-lg hover:border-[#C89B58] transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Class Image */}
-                <div className="relative aspect-[16/11] rounded-2xl overflow-hidden bg-[#EAE7E1] mb-5">
+                {/* Class Image - Exact 3:4 Portrait Aspect */}
+                <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-[#ECE8DF] mb-4">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="object-cover object-center"
                   />
-                  {/* Badges */}
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-[#0B2A3A] border border-white/40">
-                    {item.level}
-                  </div>
-                  <div className="absolute bottom-3 right-3 bg-[#0B2A3A]/85 backdrop-blur-md text-white px-3 py-1 rounded-full text-[11px] font-medium flex items-center gap-1.5">
-                    <Clock className="w-3 h-3" />
-                    <span>{item.duration}</span>
-                  </div>
                 </div>
 
-                {/* Body Content */}
-                <div className="flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#0B2A3A] group-hover:text-[#6E7F72] transition-colors">
+                {/* Body Content - High Contrast */}
+                <div className="flex-1 flex flex-col justify-between space-y-4 pt-1">
+                  <div className="space-y-1.5">
+                    <h3 className="font-serif text-2xl font-medium text-[#0E2229] group-hover:text-[#A97A37] transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#586771] leading-relaxed font-light line-clamp-3">
+                    <p className="text-xs sm:text-[13px] text-[#1D2628] leading-relaxed font-normal line-clamp-3">
                       {item.shortDesc}
                     </p>
                   </div>
 
                   {/* Metadata Row */}
-                  <div className="pt-3 border-t border-[#EAE7E1] flex items-center justify-between">
-                    <span className="text-[11px] text-[#6E7F72] font-medium">
+                  <div className="pt-3 border-t border-[#DFD9CC] flex items-center justify-between">
+                    <span className="text-[11px] text-[#5C7267] font-medium">
                       {item.intensity}
                     </span>
                     <button
                       onClick={() => setSelectedClass(item)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B2A3A] group-hover:text-[#6E7F72] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0E2229] group-hover:text-[#A97A37] transition-colors cursor-pointer"
                     >
-                      <span>Learn More</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1" />
+                      <span>Explore Detail</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover:translate-x-1 text-[#C89B58]" />
                     </button>
                   </div>
                 </div>
@@ -165,19 +158,18 @@ export default function ClassesPage() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Schedule & Props info banner */}
-        <div className="mt-20 p-8 sm:p-10 rounded-3xl bg-[#EAE7E1]/50 border border-[#EAE7E1] flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Schedule & Consultation banner */}
+        <div className="mt-20 p-8 sm:p-10 rounded-3xl bg-[#ECE8DF]/60 border border-[#DFD9CC] flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
-            <h3 className="font-serif text-2xl font-medium text-[#0B2A3A]">
-              Need help deciding which style is best for you?
+            <h3 className="font-serif text-2xl font-medium text-[#0E2229]">
+              Need personalized guidance on where to begin?
             </h3>
-            <p className="text-xs sm:text-sm text-[#586771]">
-              Book a complimentary 15-minute consultation with Serena to discuss
-              your practice goals.
+            <p className="text-xs sm:text-sm text-[#526063] font-light">
+              Connect directly with Harpreet Kaur to discuss your practice goals, alignment, or Bandha integration.
             </p>
           </div>
           <AnimatedButton href="/booking" variant="primary" size="md">
-            Book Consultation
+            Connect With Harpreet
           </AnimatedButton>
         </div>
       </div>
@@ -191,33 +183,33 @@ export default function ClassesPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedClass(null)}
-              className="fixed inset-0 bg-[#0B2A3A]/70 backdrop-blur-md"
+              className="fixed inset-0 bg-[#0E2229]/70 backdrop-blur-md"
             />
 
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 20 }}
-              className="relative w-full max-w-2xl bg-[#F8F7F3] border border-[#EAE7E1] rounded-3xl overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-2xl bg-[#FAF8F5] border border-[#DFD9CC] rounded-3xl overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedClass(null)}
-                className="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/80 hover:bg-white text-[#243038] shadow-sm transition-colors cursor-pointer"
+                className="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/80 hover:bg-white text-[#1D2628] shadow-sm transition-colors cursor-pointer"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
 
               {/* Modal Header Image */}
-              <div className="relative h-56 sm:h-64 w-full bg-[#0B2A3A] shrink-0">
+              <div className="relative h-56 sm:h-64 w-full bg-[#0E2229] shrink-0">
                 <Image
                   src={selectedClass.image}
                   alt={selectedClass.title}
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B2A3A] via-[#0B2A3A]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E2229] via-[#0E2229]/40 to-transparent" />
                 <div className="absolute bottom-5 left-6 right-6 text-white">
                   <span className="text-[10px] tracking-widest uppercase bg-white/20 backdrop-blur-md px-3 py-1 rounded-full">
                     {selectedClass.level}
@@ -231,52 +223,52 @@ export default function ClassesPage() {
               {/* Modal Body */}
               <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
                 <div>
-                  <h4 className="text-xs uppercase tracking-wider font-semibold text-[#6E7F72] mb-1">
-                    About This Practice
+                  <h4 className="text-xs uppercase tracking-wider font-semibold text-[#5C7267] mb-1">
+                    About This Discipline
                   </h4>
-                  <p className="text-sm text-[#586771] leading-relaxed">
+                  <p className="text-sm text-[#526063] leading-relaxed font-light">
                     {selectedClass.fullDesc}
                   </p>
                 </div>
 
                 {/* Key Benefits */}
                 <div>
-                  <h4 className="text-xs uppercase tracking-wider font-semibold text-[#6E7F72] mb-3">
+                  <h4 className="text-xs uppercase tracking-wider font-semibold text-[#5C7267] mb-3">
                     What You&apos;ll Experience
                   </h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {selectedClass.benefits.map((b, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 text-xs text-[#243038]"
+                        className="flex items-start gap-2 text-xs text-[#1D2628]"
                       >
-                        <CheckCircle className="w-4 h-4 text-[#6E7F72] shrink-0 mt-0.5" />
-                        <span>{b}</span>
+                        <CheckCircle className="w-4 h-4 text-[#5C7267] shrink-0 mt-0.5" />
+                        <span className="font-light">{b}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Schedule & Intensity */}
-                <div className="p-4 rounded-2xl bg-white border border-[#EAE7E1] flex flex-wrap items-center justify-between gap-4 text-xs">
+                <div className="p-4 rounded-2xl bg-white border border-[#DFD9CC] flex flex-wrap items-center justify-between gap-4 text-xs">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-[#6E7F72]" />
+                    <Calendar className="w-4 h-4 text-[#5C7267]" />
                     <div>
-                      <span className="font-semibold block text-[#0B2A3A]">
-                        Live Schedule
+                      <span className="font-semibold block text-[#0E2229]">
+                        Session Format
                       </span>
-                      <span className="text-[#586771]">
+                      <span className="text-[#526063]">
                         {selectedClass.schedule}
                       </span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-[#6E7F72]" />
+                    <Layers className="w-4 h-4 text-[#5C7267]" />
                     <div>
-                      <span className="font-semibold block text-[#0B2A3A]">
+                      <span className="font-semibold block text-[#0E2229]">
                         Duration & Intensity
                       </span>
-                      <span className="text-[#586771]">
+                      <span className="text-[#526063]">
                         {selectedClass.duration} · {selectedClass.intensity}
                       </span>
                     </div>
@@ -287,7 +279,7 @@ export default function ClassesPage() {
                 <div className="pt-2 flex items-center justify-end gap-3">
                   <button
                     onClick={() => setSelectedClass(null)}
-                    className="px-5 py-2.5 text-xs font-semibold text-[#586771] hover:text-[#0B2A3A] cursor-pointer"
+                    className="px-5 py-2.5 text-xs font-semibold text-[#526063] hover:text-[#0E2229] cursor-pointer"
                   >
                     Close
                   </button>
@@ -298,7 +290,7 @@ export default function ClassesPage() {
                     variant="primary"
                     size="md"
                   >
-                    Book This Class
+                    Inquire About This Practice
                   </AnimatedButton>
                 </div>
               </div>

@@ -10,23 +10,27 @@ export default function TypewriterText({
     "A Stronger Body",
     "A Mindful Life",
   ],
-  typingSpeed = 70,
-  deletingSpeed = 35,
+  typingSpeed = 65,
+  deletingSpeed = 30,
   pauseTime = 2000,
   className = "",
   cursorClassName = "",
+  showCursor = true,
 }) {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: false, amount: 0.2 });
+  const isInView = useInView(containerRef, { once: false, amount: 0.1 });
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Find the longest word to reserve exact space and prevent layout shifts
-  const longestWord = words.reduce(
+  // Normalize words
+  const validWords = Array.isArray(words) && words.length > 0 ? words : [""];
+
+  // Find longest word to preserve layout width
+  const longestWord = validWords.reduce(
     (longest, current) => (current.length > longest.length ? current : longest),
-    words[0] || ""
+    validWords[0] || ""
   );
 
   useEffect(() => {
@@ -36,7 +40,7 @@ export default function TypewriterText({
       return;
     }
 
-    const targetWord = words[currentWordIndex] || "";
+    const targetWord = validWords[currentWordIndex] || "";
     let timer;
 
     if (!isDeleting) {
@@ -45,18 +49,21 @@ export default function TypewriterText({
           setCurrentText(targetWord.substring(0, currentText.length + 1));
         }, typingSpeed);
       } else {
+        // Finished typing word, wait before clearing
         timer = setTimeout(() => {
           setIsDeleting(true);
         }, pauseTime);
       }
     } else {
       if (currentText.length > 0) {
+        // Clearing / deleting character by character
         timer = setTimeout(() => {
           setCurrentText(targetWord.substring(0, currentText.length - 1));
         }, deletingSpeed);
       } else {
+        // Cleared completely, switch to next word
         setIsDeleting(false);
-        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        setCurrentWordIndex((prev) => (prev + 1) % validWords.length);
       }
     }
 
@@ -66,29 +73,35 @@ export default function TypewriterText({
     currentText,
     isDeleting,
     currentWordIndex,
-    words,
+    validWords,
     typingSpeed,
     deletingSpeed,
     pauseTime,
   ]);
 
   return (
-    <span ref={containerRef} className={`relative inline-block ${className}`}>
-      {/* Invisible placeholder reserving exact width and height */}
+    <span
+      ref={containerRef}
+      className={`relative inline-flex items-baseline max-w-full ${className}`}
+      style={{ verticalAlign: "baseline" }}
+    >
+      {/* Invisible placeholder reserving exact layout space to prevent shifts */}
       <span
         aria-hidden="true"
-        className="invisible select-none pointer-events-none opacity-0"
+        className="invisible select-none pointer-events-none opacity-0 h-auto"
       >
         {longestWord}
       </span>
 
-      {/* Visible typing text */}
-      <span className="absolute inset-0 flex items-center">
-        <span className="whitespace-nowrap">{currentText}</span>
-        <span
-          aria-hidden="true"
-          className={`inline-block w-[2.5px] sm:w-[3px] h-[0.82em] ml-1 bg-[#6E7F72] rounded-full animate-pulse shrink-0 ${cursorClassName}`}
-        />
+      {/* Visible typing text positioned right over the reserved space */}
+      <span className="absolute inset-0 flex items-center whitespace-nowrap overflow-visible">
+        <span>{currentText || "\u00A0"}</span>
+        {showCursor && (
+          <span
+            aria-hidden="true"
+            className={`inline-block w-[2.5px] sm:w-[3px] h-[0.82em] ml-1 bg-current rounded-full animate-pulse shrink-0 ${cursorClassName}`}
+          />
+        )}
       </span>
     </span>
   );

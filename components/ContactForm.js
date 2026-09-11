@@ -16,7 +16,7 @@ export default function ContactForm({
     name: "",
     email: "",
     phone: "",
-    service: defaultService || "Hatha Yoga Session",
+    service: defaultService || "Hatha Yoga & Alignment",
     preferredDate: "",
     preferredTime: "",
     message: "",
@@ -61,7 +61,7 @@ export default function ContactForm({
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/Himanshukhanegwal@gmail.com",
+        "https://formsubmit.co/ajax/yogawithharpreet@gmail.com",
         {
           method: "POST",
           headers: {
@@ -69,7 +69,7 @@ export default function ContactForm({
             Accept: "application/json",
           },
           body: JSON.stringify({
-            _subject: `New Inquiry from Serena Yoga: ${formData.name}`,
+            _subject: `New Inquiry from Yoga Regime: ${formData.name}`,
             _template: "table",
             _captcha: "false",
             fullName: formData.name,
@@ -97,7 +97,7 @@ export default function ContactForm({
             name: "",
             email: "",
             phone: "",
-            service: defaultService || "Hatha Yoga Session",
+            service: defaultService || "Hatha Yoga & Alignment",
             preferredDate: "",
             preferredTime: "",
             message: "",
@@ -121,11 +121,11 @@ export default function ContactForm({
     <div className="w-full">
       {formTitle && (
         <div className="mb-6">
-          <h3 className="font-serif text-2xl sm:text-3xl text-[#0B2A3A] font-medium">
+          <h3 className="font-serif text-2xl sm:text-3xl text-[#0E2229] font-medium">
             {formTitle}
           </h3>
           {formSubtitle && (
-            <p className="text-sm text-[#586771] mt-1">{formSubtitle}</p>
+            <p className="text-sm text-[#526063] mt-1">{formSubtitle}</p>
           )}
         </div>
       )}
@@ -146,14 +146,28 @@ export default function ContactForm({
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+      <form
+        action="https://formsubmit.co/yogawithharpreet@gmail.com"
+        method="POST"
+        onSubmit={handleSubmit}
+        className="space-y-4 sm:space-y-5"
+      >
+        {/* FormSubmit Configuration */}
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input
+          type="hidden"
+          name="_subject"
+          value={`New Inquiry from Yoga Regime: ${formData.name || "Website Visitor"}`}
+        />
+
         {/* Full Name */}
         <div>
           <label
             htmlFor="name"
-            className="block text-xs uppercase tracking-wider font-semibold text-[#243038] mb-1.5"
+            className="block text-xs uppercase tracking-wider font-semibold text-[#1D2628] mb-1.5"
           >
-            Full Name <span className="text-red-500">*</span>
+            Full Name <span className="text-[#A97A37]">*</span>
           </label>
           <input
             type="text"
@@ -162,9 +176,9 @@ export default function ContactForm({
             required
             value={formData.name}
             onChange={handleChange}
-            placeholder="e.g. Maya Johnson"
+            placeholder="e.g. Aman Sharma"
             disabled={status === "sending"}
-            className="w-full px-4 py-3.5 bg-white border border-[#EAE7E1] rounded-2xl text-[#243038] placeholder-[#7E8D98]/60 text-sm focus:bg-white focus:border-[#0B2A3A] transition-all disabled:opacity-60"
+            className="w-full px-4 py-3.5 bg-white border border-[#DFD9CC] rounded-2xl text-[#1D2628] placeholder-[#7A898C]/60 text-sm focus:bg-white focus:border-[#0E2229] transition-all disabled:opacity-60"
           />
         </div>
 
@@ -173,9 +187,9 @@ export default function ContactForm({
           <div>
             <label
               htmlFor="email"
-              className="block text-xs uppercase tracking-wider font-semibold text-[#243038] mb-1.5"
+              className="block text-xs uppercase tracking-wider font-semibold text-[#1D2628] mb-1.5"
             >
-              Email <span className="text-red-500">*</span>
+              Email <span className="text-[#A97A37]">*</span>
             </label>
             <input
               type="email"
@@ -186,16 +200,16 @@ export default function ContactForm({
               onChange={handleChange}
               placeholder="name@domain.com"
               disabled={status === "sending"}
-              className="w-full px-4 py-3.5 bg-white border border-[#EAE7E1] rounded-2xl text-[#243038] placeholder-[#7E8D98]/60 text-sm focus:bg-white focus:border-[#0B2A3A] transition-all disabled:opacity-60"
+              className="w-full px-4 py-3.5 bg-white border border-[#DFD9CC] rounded-2xl text-[#1D2628] placeholder-[#7A898C]/60 text-sm focus:bg-white focus:border-[#0E2229] transition-all disabled:opacity-60"
             />
           </div>
 
           <div>
             <label
               htmlFor="phone"
-              className="block text-xs uppercase tracking-wider font-semibold text-[#243038] mb-1.5"
+              className="block text-xs uppercase tracking-wider font-semibold text-[#1D2628] mb-1.5"
             >
-              Phone Number <span className="text-red-500">*</span>
+              Phone Number <span className="text-[#A97A37]">*</span>
             </label>
             <input
               type="tel"
@@ -204,9 +218,9 @@ export default function ContactForm({
               required
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+1 (555) 234-5678"
+              placeholder="+91 95696 63204"
               disabled={status === "sending"}
-              className="w-full px-4 py-3.5 bg-white border border-[#EAE7E1] rounded-2xl text-[#243038] placeholder-[#7E8D98]/60 text-sm focus:bg-white focus:border-[#0B2A3A] transition-all disabled:opacity-60"
+              className="w-full px-4 py-3.5 bg-white border border-[#DFD9CC] rounded-2xl text-[#1D2628] placeholder-[#7A898C]/60 text-sm focus:bg-white focus:border-[#0E2229] transition-all disabled:opacity-60"
             />
           </div>
         </div>
@@ -216,9 +230,9 @@ export default function ContactForm({
           <div>
             <label
               htmlFor="service"
-              className="block text-xs uppercase tracking-wider font-semibold text-[#243038] mb-1.5"
+              className="block text-xs uppercase tracking-wider font-semibold text-[#1D2628] mb-1.5"
             >
-              Select Service / Class <span className="text-red-500">*</span>
+              Select Practice Area / Inquiry <span className="text-[#A97A37]">*</span>
             </label>
             <select
               id="service"
@@ -226,23 +240,19 @@ export default function ContactForm({
               value={formData.service}
               onChange={handleChange}
               disabled={status === "sending"}
-              className="w-full px-4 py-3.5 bg-white border border-[#EAE7E1] rounded-2xl text-[#243038] text-sm focus:bg-white focus:border-[#0B2A3A] transition-all disabled:opacity-60 appearance-none cursor-pointer"
+              className="w-full px-4 py-3.5 bg-white border border-[#DFD9CC] rounded-2xl text-[#1D2628] text-sm focus:bg-white focus:border-[#0E2229] transition-all disabled:opacity-60 appearance-none cursor-pointer"
             >
-              <option value="1-on-1 Private Yoga">1-on-1 Private Yoga</option>
-              <option value="Hatha Yoga Foundation">Hatha Yoga Foundation</option>
-              <option value="Vinyasa Flow Class">Vinyasa Flow Class</option>
-              <option value="Meditation & Breathwork Intensive">
-                Meditation & Breathwork Intensive
-              </option>
-              <option value="Prenatal Yoga Program">
-                Prenatal Yoga Program
-              </option>
-              <option value="Corporate Wellness Workshop">
-                Corporate Wellness Workshop
-              </option>
-              <option value="Virtual Studio Monthly Pass">
-                Virtual Studio Monthly Pass
-              </option>
+              <option value="Bandha Integration Intensive">Bandha Integration Intensive</option>
+              <option value="Hatha Yoga & Alignment">Hatha Yoga & Alignment</option>
+              <option value="Ashtanga Yoga Practice">Ashtanga Yoga Practice</option>
+              <option value="Vinyasa Flow">Vinyasa Flow</option>
+              <option value="Pranayama & Breath Awareness">Pranayama & Breath Awareness</option>
+              <option value="Mudra & Traditional Practices">Mudra & Traditional Practices</option>
+              <option value="Meditation & Mind Observation">Meditation & Mind Observation</option>
+              <option value="Shatkarma Cleansing Guidance">Shatkarma Cleansing Guidance</option>
+              <option value="Pre & Post Natal Yoga">Pre & Post Natal Yoga</option>
+              <option value="Advanced Asana Mentorship">Advanced Asana Mentorship</option>
+              <option value="1-on-1 Personalized Session">1-on-1 Personalized Session</option>
             </select>
           </div>
         )}
@@ -253,7 +263,7 @@ export default function ContactForm({
             <div>
               <label
                 htmlFor="preferredDate"
-                className="block text-xs uppercase tracking-wider font-semibold text-[#243038] mb-1.5"
+                className="block text-xs uppercase tracking-wider font-semibold text-[#1D2628] mb-1.5"
               >
                 Preferred Date
               </label>
@@ -264,15 +274,15 @@ export default function ContactForm({
                 value={formData.preferredDate}
                 onChange={handleChange}
                 disabled={status === "sending"}
-                className="w-full px-4 py-3.5 bg-white border border-[#EAE7E1] rounded-2xl text-[#243038] text-sm focus:bg-white focus:border-[#0B2A3A] transition-all disabled:opacity-60"
+                className="w-full px-4 py-3.5 bg-white border border-[#DFD9CC] rounded-2xl text-[#1D2628] text-sm focus:bg-white focus:border-[#0E2229] transition-all disabled:opacity-60"
               />
             </div>
             <div>
               <label
                 htmlFor="preferredTime"
-                className="block text-xs uppercase tracking-wider font-semibold text-[#243038] mb-1.5"
+                className="block text-xs uppercase tracking-wider font-semibold text-[#1D2628] mb-1.5"
               >
-                Preferred Time
+                Preferred Time Window
               </label>
               <select
                 id="preferredTime"
@@ -280,19 +290,19 @@ export default function ContactForm({
                 value={formData.preferredTime}
                 onChange={handleChange}
                 disabled={status === "sending"}
-                className="w-full px-4 py-3.5 bg-white border border-[#EAE7E1] rounded-2xl text-[#243038] text-sm focus:bg-white focus:border-[#0B2A3A] transition-all disabled:opacity-60 cursor-pointer"
+                className="w-full px-4 py-3.5 bg-white border border-[#DFD9CC] rounded-2xl text-[#1D2628] text-sm focus:bg-white focus:border-[#0E2229] transition-all disabled:opacity-60 cursor-pointer"
               >
                 <option value="">Choose Time Window</option>
-                <option value="Morning (7:00 AM - 10:00 AM)">
-                  Morning (7:00 AM - 10:00 AM)
+                <option value="Early Morning (6:30 AM - 9:00 AM)">
+                  Early Morning (6:30 AM - 9:00 AM)
                 </option>
-                <option value="Midday (11:00 AM - 2:00 PM)">
-                  Midday (11:00 AM - 2:00 PM)
+                <option value="Midday / Afternoon (11:00 AM - 2:00 PM)">
+                  Midday / Afternoon (11:00 AM - 2:00 PM)
                 </option>
-                <option value="Evening (4:00 PM - 7:30 PM)">
-                  Evening (4:00 PM - 7:30 PM)
+                <option value="Evening (5:00 PM - 7:30 PM)">
+                  Evening (5:00 PM - 7:30 PM)
                 </option>
-                <option value="Weekend Special">Weekend Special</option>
+                <option value="Weekend Masterclass Slot">Weekend Masterclass Slot</option>
               </select>
             </div>
           </div>
@@ -302,9 +312,9 @@ export default function ContactForm({
         <div>
           <label
             htmlFor="message"
-            className="block text-xs uppercase tracking-wider font-semibold text-[#243038] mb-1.5"
+            className="block text-xs uppercase tracking-wider font-semibold text-[#1D2628] mb-1.5"
           >
-            Message / Goals
+            Message / Practice Goals
           </label>
           <textarea
             id="message"
@@ -312,42 +322,50 @@ export default function ContactForm({
             rows="4"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Tell Serena about your current experience level, specific goals, or any physical limitations..."
+            placeholder="Tell Harpreet about your practice background, specific areas of focus (Bandhas, alignment, breath, etc.), or any injuries..."
             disabled={status === "sending"}
-            className="w-full px-4 py-3.5 bg-white border border-[#EAE7E1] rounded-2xl text-[#243038] placeholder-[#7E8D98]/60 text-sm focus:bg-white focus:border-[#0B2A3A] transition-all resize-none disabled:opacity-60"
+            className="w-full px-4 py-3.5 bg-white border border-[#DFD9CC] rounded-2xl text-[#1D2628] placeholder-[#7A898C]/60 text-sm focus:bg-white focus:border-[#0E2229] transition-all resize-none disabled:opacity-60"
           ></textarea>
         </div>
 
         {/* 0 to 100% Sending Progress Button Animation */}
         <div className="pt-2">
           {status === "sending" ? (
-            <div className="relative w-full h-14 bg-[#0B2A3A] rounded-full overflow-hidden flex items-center justify-center shadow-md">
+            <div className="relative w-full h-14 bg-[#0E2229] rounded-full overflow-hidden flex items-center justify-center shadow-md">
               {/* Horizontal Progress Fill Animation */}
               <div
-                className="absolute inset-y-0 left-0 bg-[#6E7F72] transition-all duration-150 ease-out"
+                className="absolute inset-y-0 left-0 bg-[#5C7267] transition-all duration-150 ease-out"
                 style={{ width: `${progress}%` }}
               />
 
               {/* Progress Text with percentage */}
               <div className="relative z-10 flex items-center gap-2.5 text-white text-sm font-medium tracking-wide">
-                <RefreshCw className="w-4 h-4 animate-spin text-[#D8C9B8]" />
+                <RefreshCw className="w-4 h-4 animate-spin text-[#C89B58]" />
                 <span>Sending... {progress}%</span>
               </div>
             </div>
           ) : (
             <button
               type="submit"
-              className="group relative w-full h-14 rounded-full overflow-hidden bg-[#D8C9B8] border border-[#0B2A3A] shadow-sm hover:shadow-md cursor-pointer text-white transition-all duration-400 ease-out active:scale-[0.99]"
+              className="liquid-btn group relative w-full h-14 rounded-full overflow-hidden bg-[#0E2229] border border-[#0E2229] hover:border-[#C89B58] shadow-sm hover:shadow-lg hover:shadow-[#C89B58]/20 cursor-pointer text-white transition-all duration-300 ease-out active:scale-[0.98]"
             >
-              {/* Split-away curtain Left */}
-              <span className="absolute inset-y-0 left-0 w-[50.5%] bg-[#0B2A3A] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-full z-0" />
-              {/* Split-away curtain Right */}
-              <span className="absolute inset-y-0 right-0 w-[50.5%] bg-[#0B2A3A] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-full z-0" />
+              {/* Secondary fluid wave */}
+              <span
+                aria-hidden="true"
+                className="liquid-wave-secondary bg-[#DFC08A]"
+              />
+              {/* Primary fluid wave */}
+              <span
+                aria-hidden="true"
+                className="liquid-wave bg-[#C89B58]"
+              />
+              {/* Specular fluid sheen */}
+              <span aria-hidden="true" className="liquid-sheen" />
 
               {/* Button Text */}
-              <span className="relative z-10 flex items-center justify-center gap-2 font-medium text-sm tracking-wide text-white group-hover:text-[#0B2A3A] transition-colors duration-300">
+              <span className="relative z-10 flex items-center justify-center gap-2 font-medium text-sm tracking-wide text-white group-hover:text-[#0E2229] transition-colors duration-300">
                 <span>{submitButtonText}</span>
-                <Send className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
+                <Send className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1 shrink-0" />
               </span>
             </button>
           )}
@@ -359,7 +377,7 @@ export default function ContactForm({
         isOpen={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
         title="Message Sent Successfully"
-        message="Thank you for reaching out to Serena Yoga. Your message has been received and Serena will respond within 24 hours."
+        message="Thank you for reaching out to Yoga Regime. Your message has been received and Harpreet will respond within 24 hours."
       />
     </div>
   );

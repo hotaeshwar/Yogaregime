@@ -1,36 +1,45 @@
 import Hero from "@/components/Hero";
+import IntroPhilosophy from "@/components/IntroPhilosophy";
 import AboutPreview from "@/components/AboutPreview";
+import CoreApproach from "@/components/CoreApproach";
+import BandhaSection from "@/components/BandhaSection";
+import MovementBreath from "@/components/MovementBreath";
 import PracticeCards from "@/components/PracticeCards";
-import BenefitsSection from "@/components/BenefitsSection";
-import Testimonials from "@/components/Testimonials";
-import CTASection from "@/components/CTASection";
+import PhilosophyClosing from "@/components/PhilosophyClosing";
 
 export const metadata = {
-  title: "Serena Yoga | Move · Breathe · Be | Certified Yoga Instructor",
+  title: "Yoga Regime | Harpreet Kaur | Yoga Beyond the Asana",
   description:
-    "Yoga for a stronger body, a calmer mind and a more mindful life. Explore Hatha, Vinyasa, Meditation, Prenatal and private yoga sessions with Serena.",
+    "Traditional yoga practices, modern understanding, and intelligent movement. Explore Asana, Pranayama, Bandhas, Mudras, and Meditation with Harpreet Kaur.",
 };
 
 export default function Home() {
   return (
     <>
-      {/* 1. Hero Section */}
+      {/* 1. Hero */}
       <Hero />
 
-      {/* 2. About Section */}
+      {/* 2. Intro / Philosophy */}
+      <IntroPhilosophy />
+
+      {/* 3. About Harpreet */}
       <AboutPreview />
 
-      {/* 3. Find Your Practice */}
+      {/* 4. Core approach */}
+      <CoreApproach />
+
+      {/* 5. Strong Bandha section */}
+      <BandhaSection />
+
+      {/* 6. Movement + Breath */}
+      <MovementBreath />
+
+      {/* 7. Practice areas */}
       <PracticeCards />
 
-      {/* 4. Benefits Section */}
-      <BenefitsSection />
-
-      {/* 5. Testimonials */}
-      <Testimonials />
-
-      {/* 6. Final Call to Action */}
-      <CTASection />
+      {/* 8. Philosophy / closing section */}
+      <PhilosophyClosing />
     </>
   );
 }
+

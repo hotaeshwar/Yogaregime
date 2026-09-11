@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion";
 
+const defaultViewport = { once: true, amount: 0.08, margin: "0px 0px -30px 0px" };
+
 export function FadeIn({
   children,
   delay = 0,
   duration = 0.7,
-  y = 28,
+  y = 26,
   className = "",
-  viewport = { once: true, amount: 0.15 },
+  viewport = defaultViewport,
   scale = 1,
   ...props
 }) {
@@ -20,7 +22,7 @@ export function FadeIn({
       transition={{
         duration,
         delay,
-        ease: [0.21, 0.47, 0.32, 0.98],
+        ease: [0.22, 1, 0.36, 1],
       }}
       className={className}
       {...props}
@@ -32,10 +34,10 @@ export function FadeIn({
 
 export function StaggerContainer({
   children,
-  staggerDelay = 0.1,
+  staggerDelay = 0.12,
   delayChildren = 0.05,
   className = "",
-  viewport = { once: true, amount: 0.15 },
+  viewport = defaultViewport,
   ...props
 }) {
   const containerVariants = {
@@ -65,10 +67,10 @@ export function StaggerContainer({
 
 export function StaggerItem({
   children,
-  y = 24,
-  duration = 0.6,
+  y = 30,
+  duration = 0.65,
   className = "",
-  scale = 1,
+  scale = 0.96,
   ...props
 }) {
   const itemVariants = {
@@ -79,7 +81,7 @@ export function StaggerItem({
       scale: 1,
       transition: {
         duration,
-        ease: [0.21, 0.47, 0.32, 0.98],
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
@@ -96,18 +98,18 @@ export function ImageReveal({
   delay = 0,
   duration = 0.8,
   className = "",
-  viewport = { once: true, amount: 0.15 },
+  viewport = defaultViewport,
   ...props
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={viewport}
       transition={{
         duration,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.22, 1, 0.36, 1],
       }}
       className={className}
       {...props}

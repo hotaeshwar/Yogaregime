@@ -2,51 +2,52 @@ export const testimonialsData = [
   {
     id: 1,
     name: "Priya S.",
-    role: "Senior Product Designer",
-    image: "/images/serena_portrait.jpg",
+    role: "Dedicated Practitioner & Teacher",
+    image: "/images/IMG_0267.png",
     rating: 5,
     quote:
-      "Serena's classes have completely transformed my life. I feel stronger, calmer and more focused. Her guidance is truly special and creates a sanctuary in my hectic schedule.",
-    service: "1-on-1 Private Sessions"
+      "Harpreet's teaching on Bandhas and movement mechanics completely changed how I experience my practice. I no longer strain my lower back and have unlocked a level of lightness I didn't think was possible.",
+    service: "Bandha Mastery & Alignment"
   },
   {
     id: 2,
     name: "Marcus Vance",
-    role: "Software Architect & Marathoner",
-    image: "/images/vinyasa_yoga.jpg",
+    role: "Marathon Runner & Yogi",
+    image: "/images/IMG_0293.png",
     rating: 5,
     quote:
-      "As an avid runner with tight hamstrings and constant lower back pain, Serena's precision alignment and Vinyasa sequencing increased my flexibility by 40% and eliminated my chronic back tightness.",
-    service: "Vinyasa Flow & Foundations"
+      "Understanding the 'why' behind each posture with Harpreet gave me so much respect for my own anatomy. Her focus on breath and intelligent mechanics cured my chronic hamstring tension.",
+    service: "Hatha & Ashtanga Foundations"
   },
   {
     id: 3,
     name: "Elena Rostova",
     role: "Mother of Two",
-    image: "/images/prenatal_yoga.jpg",
+    image: "/images/IMG_0263.png",
     rating: 5,
     quote:
-      "The prenatal yoga program was a godsend throughout my second pregnancy. Serena created such a nurturing, safe environment. My labor breathing was so much calmer because of her teachings.",
-    service: "Prenatal Yoga"
+      "Harpreet created such a safe, deeply grounding sanctuary during my prenatal journey. Her gentle breathwork and pelvic awareness guidance made all the difference.",
+    service: "Pre & Post Natal Practice"
   },
   {
     id: 4,
     name: "David K.",
-    role: "Tech Executive & Founder",
-    image: "/images/corporate_yoga.jpg",
+    role: "Tech Founder",
+    image: "/images/IMG_0235.png",
     rating: 5,
     quote:
-      "We hired Serena for our company's corporate wellness series. The entire team raved about how grounded and refreshed they felt afterwards. Burnout dropped visibly across our engineering unit.",
-    service: "Corporate Wellness Series"
+      "Yoga Regime goes far beyond standard studio classes. Harpreet's 15 years of deep study shine through in every session. She teaches you how to truly observe your mind.",
+    service: "1-on-1 Mentorship"
   },
   {
     id: 5,
     name: "Ananya Patel",
     role: "University Professor",
-    image: "/images/meditation.jpg",
+    image: "/images/IMG_0238.png",
     rating: 5,
     quote:
-      "The breathwork and meditation sessions helped me regain restorative sleep after two years of chronic insomnia. Serena embodies the true essence of mindful living.",
-    service: "Mindfulness & Breathwork"
+      "The Pranayama and Shatkarma guidance helped restore my sleep cycle and nervous system balance. Harpreet embodies authentic traditional yoga with modern clarity.",
+    service: "Pranayama & Meditation"
   }
 ];
+

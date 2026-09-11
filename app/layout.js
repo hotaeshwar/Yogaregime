@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,45 +11,49 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata = {
   metadataBase: new URL("https://yogaregime.com"),
   title: {
-    default: "Serena Yoga | Move · Breathe · Be | Certified Yoga & Mindfulness",
-    template: "%s | Serena Yoga",
+    default: "Yoga Regime | Harpreet Kaur | Yoga Beyond the Asana",
+    template: "%s | Yoga Regime",
   },
   description:
-    "Transform your mind, body, and spirit with certified yoga instructor Serena. Private sessions, group classes, corporate wellness, and online yoga programs tailored for you.",
+    "Explore a deeper approach to Yoga through mindful movement, breath, Bandhas, traditional practices and greater awareness of the body and mind with Harpreet Kaur.",
   keywords: [
-    "Yoga Instructor",
-    "Mindfulness Coach",
+    "Harpreet Kaur",
+    "Yoga Regime",
+    "Yoga Beyond the Asana",
+    "Bandhas",
+    "Pranayama",
     "Hatha Yoga",
-    "Vinyasa Flow",
+    "Ashtanga Yoga",
+    "Mudra",
     "Meditation",
-    "Prenatal Yoga",
-    "Private Yoga Classes",
-    "Serena Yoga",
+    "Shatkarma",
+    "Pre & Post Natal Yoga",
+    "Advanced Asana",
   ],
-  authors: [{ name: "Serena", url: "https://yogaregime.com" }],
-  creator: "Serena Yoga",
+  authors: [{ name: "Harpreet Kaur", url: "https://yogaregime.com" }],
+  creator: "Harpreet Kaur",
   openGraph: {
-    title: "Serena Yoga | Move · Breathe · Be",
+    title: "Yoga Regime | Harpreet Kaur | Yoga Beyond the Asana",
     description:
-      "Yoga for a stronger body, a calmer mind and a more mindful life. Discover private and group classes with Serena.",
+      "Traditional yoga practices, modern understanding, and intelligent movement. Explore Asana, Pranayama, Bandhas, and Meditation with Harpreet Kaur.",
     url: "https://yogaregime.com",
-    siteName: "Serena Yoga",
+    siteName: "Yoga Regime",
     images: [
       {
-        url: "/images/hero_yoga.jpg",
+        url: "/images/IMG_0299-Recovered.png",
         width: 1200,
         height: 630,
-        alt: "Serena Yoga - Mindful Living & Yoga Practice",
+        alt: "Yoga Regime - Harpreet Kaur - Yoga Beyond the Asana",
       },
     ],
     locale: "en_US",
@@ -57,10 +61,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Serena Yoga | Move · Breathe · Be",
+    title: "Yoga Regime | Harpreet Kaur | Yoga Beyond the Asana",
     description:
-      "Yoga for a stronger body, a calmer mind and a more mindful life.",
-    images: ["/images/hero_yoga.jpg"],
+      "Traditional yoga practices, modern understanding, and intelligent movement.",
+    images: ["/images/IMG_0299-Recovered.png"],
   },
   robots: {
     index: true,
@@ -68,15 +72,15 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/images/logo1.png", type: "image/png" },
     ],
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    shortcut: "/images/logo1.png",
+    apple: "/images/logo1.png",
   },
 };
 
 export const viewport = {
-  themeColor: "#0B2A3A",
+  themeColor: "#0E2229",
   width: "device-width",
   initialScale: 1,
 };
@@ -86,9 +90,14 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${cormorant.variable} ${inter.variable} scroll-smooth antialiased`}
+      className={`${cormorant.variable} ${plusJakarta.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-[#F8F7F3] text-[#243038] font-sans selection:bg-[#0B2A3A] selection:text-white flex flex-col overflow-x-hidden">
+      <head>
+        <link rel="icon" href="/images/logo1.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/logo1.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/logo1.png" />
+      </head>
+      <body className="min-h-screen bg-[#FAF8F5] text-[#1D2628] font-sans selection:bg-[#0E2229] selection:text-[#FAF8F5] flex flex-col overflow-x-hidden">
         <Navbar />
         <main className="flex-1 w-full pt-0">{children}</main>
         <Footer />
