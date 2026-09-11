@@ -18,9 +18,9 @@ export default function AnimatedButton({
 }) {
   const sizeClasses = {
     xs: "px-3 py-1.5 text-[11px] tracking-wide",
-    sm: "px-3.5 sm:px-4.5 py-1.5 sm:py-2 text-xs tracking-wider",
-    md: "px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm tracking-wide",
-    lg: "px-7 sm:px-9 py-3 sm:py-4 text-sm sm:text-base tracking-wide",
+    sm: "px-4 sm:px-5 py-2 sm:py-2 text-xs tracking-wider",
+    md: "px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm tracking-wide",
+    lg: "px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base tracking-wide",
   };
 
   const arrowSizes = {

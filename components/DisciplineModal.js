@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
+import { X, CheckCircle2, Sparkles } from "lucide-react";
 import AnimatedButton from "./AnimatedButton";
 
 export default function DisciplineModal({ item, isOpen, onClose }) {
@@ -127,18 +127,17 @@ export default function DisciplineModal({ item, isOpen, onClose }) {
             <div className="pt-4 border-t border-[#DFD9CC] flex flex-col sm:flex-row items-center justify-between gap-3">
               <button
                 onClick={onClose}
-                className="text-xs font-semibold text-[#5C7267] hover:text-[#0E2229] cursor-pointer order-2 sm:order-1"
+                className="text-xs font-semibold text-[#5C7267] hover:text-[#0E2229] transition-colors cursor-pointer order-2 sm:order-1 py-1 px-2"
               >
                 Close Window
               </button>
               <AnimatedButton
                 href={`/contact?subject=${encodeURIComponent(`Inquiry about ${item.title}`)}`}
                 variant="primary"
-                size="md"
+                size="sm"
                 className="w-full sm:w-auto order-1 sm:order-2"
               >
-                <span>Connect With Harpreet</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
+                Connect With Harpreet
               </AnimatedButton>
             </div>
           </div>
