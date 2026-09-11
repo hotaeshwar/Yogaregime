@@ -85,7 +85,7 @@ export default function AboutPreview() {
                   understand my body, mind and myself.
                 </p>
                 <p>
-                  My journey continues to evolve through learning from different teachers and gurus, practising and sharing what I learn.
+                  I am a registered teacher with Yoga Alliance USA, and my journey continues to evolve through learning from different teachers and gurus, practising and sharing what I learn.
                 </p>
               </div>
             </FadeIn>

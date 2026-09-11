@@ -157,7 +157,7 @@ export default function AboutPage() {
                   What began as an introduction gradually became a deeply personal journey that continues to shape the way I understand my body, mind and myself.
                 </p>
                 <p>
-                  My journey continues to evolve through learning from different teachers and gurus, practising and sharing what I learn.
+                  I am a registered teacher with Yoga Alliance USA, and my journey continues to evolve through learning from different teachers and gurus, practising and sharing what I learn.
                 </p>
                 <p>
                   At <strong className="font-semibold text-[#0E2229]">Yoga Regime</strong>, the focus is on understanding why and how you practise — rather than simply trying to replicate a pose.
